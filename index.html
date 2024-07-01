@@ -26,6 +26,21 @@
     // 🧠 But there's a catch: once `age` reaches 12, the `ageGracefully` method will have no effect.
     class PeterPan {
 
+      constructor(name){
+        this.name = name
+        this.age = 0
+      }
+
+      ageGracefully(){
+        
+        if(this.age < 12){
+          this.age++;
+        }else{
+          console.log("Age is over 12");
+        }
+      }
+      
+
     }
 
     // 👉 CHALLENGE 2
@@ -39,6 +54,28 @@
     // 🧠 If calling `down` would cause the plane to go below altitude zero, `altitude` is set to 0 and the string "CRASH!" is returned.
     class AirPlane {
 
+      constructor(model){
+        this.model = model;
+        this.altitude = 0;
+      }
+
+      up(meters){
+        return this.altitude += meters;
+      }
+
+      down(meters){
+        
+        this.altitude -= meters;
+        
+        if(this.altitude < 0){
+          this.altitude = 0
+          return "CRASH!"  
+        }else{
+          return this.altitude;
+        }
+
+      }
+
     }
 
     // 👉 CHALLENGE 3
@@ -48,6 +85,28 @@
     // 🧠 The methods work as one might expect, changing the value of `isOn` to the appropriate Boolean.
     // 🧠 The methods also return one of these two strings: "You turned the bulb ON", or "You turned the bulb OFF".
     class Bulb {
+      
+      constructor(){
+        this.isOn = false;
+      }
+
+      turnOn(){
+        this.isOn = true;
+        return "You turned the bulb ON"
+      }
+      turnOff(){
+        this.isOn = false;
+        return "You turned the bulb OFF"
+      }
+      toggle(){
+        this.isOn = !this.isOn;
+        if(this.isOn){
+          return "You turned the bulb ON"
+        }else{
+          return "You turned the bulb OFF"
+        }
+
+      }
 
     }
 
@@ -66,6 +125,25 @@
     //   minusThree.count() // returns null
     //   minusThree.count() // returns null
     class CountDown {
+
+      constructor(num){
+        this.num = num
+      }
+
+      count(){
+        
+        this.num--
+        
+        if((this.num + 1 ) < 0){
+          return null;
+        }
+
+        if((this.num + 1) === 0){
+          return '' + "Liftoff!" + ''
+        }else{
+          return '' + (this.num + 1) + '!'
+        }
+      }
 
     }
 
